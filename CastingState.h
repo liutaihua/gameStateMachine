@@ -3,7 +3,9 @@
 // 施法状态
 
 #include "IState.h"
-#include "Utility.h"
+//#include "Utility.h"
+
+class IState;
 
 class CastingState : public IState
 {
@@ -16,8 +18,8 @@ public:
 
     virtual void Update( uint64 frameCount );
 
-    virtual void MoveTo(int x, int y /*position*/);
-    virtual void StopAt(int x, int y);
+    virtual void MoveTo(Position& pos/*position*/);
+    virtual void StopAt(Position& pos);
     virtual void Cast();
     virtual void OnCasted();
     virtual void Stun();

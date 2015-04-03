@@ -6,10 +6,10 @@
 //#include "CastingState.h"
 //#include "StunState.h"
 //#include "DeadState.h"
-//#include "Player.h"
+//#include "Creature.h"
+class Creature;
 
-
-StateMachine::StateMachine(Player* pCreature) :
+StateMachine::StateMachine(Creature* pCreature) :
     m_pOwner(pCreature),
     m_ReadyState(this),
     m_IdleState(this),
@@ -80,11 +80,11 @@ void StateMachine::ChangeStateTo(int stateId)
 }
 
 
-//void StateMachine::MoveTo(const CoVec2& position)
-//{
-//	m_pCurrentState->MoveTo(position);
-//}
-//
+void StateMachine::MoveTo(Position& position)
+{
+    m_pCurrentState->MoveTo(position);
+}
+
 //void StateMachine::StopAt( const CoVec2& position, float angle )
 //{
 //	m_pCurrentState->StopAt(position, angle);

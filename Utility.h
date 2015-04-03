@@ -25,7 +25,10 @@ typedef unsigned int			uint32;
 //    return dis + min;
 //}
 
-
+struct Position{
+    int x;
+    int y;
+};
 
 
 

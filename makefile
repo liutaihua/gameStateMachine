@@ -1,6 +1,8 @@
-c1y=clang++ -std=c++1y
+c1y=clang++ -std=c++1y -I/usr/local/include -I/Users/liutaihua/GameState
+#INCPATH = -I/usr/local/include
 
-objects=main.o Player.o StateMachine.o ReadyState.o IState.o IdleState.o DeadState.o CastingState.o MoveState.o
+objects= StateMachine.o ReadyState.o IState.o IdleState.o DeadState.o CastingState.o MoveState.o Player.o Creature.o CreatureObserver.o main.o
+
 all=./bin/gsm
 
 bin/gsm:${objects}
@@ -8,7 +10,7 @@ bin/gsm:${objects}
 main.o:main.cc
 	${c1y} -c $<
 
-Player.o:Player.cc
+Creature.o:Creature.cc
 	${c1y} -c $<
 
 StateMachine.o:StateMachine.cc
@@ -32,18 +34,24 @@ MoveState.o:MoveState.cc
 CastingState.o:CastingState.cc
 	${c1y} -c $<
 
+CreatureObserver.o:CreatureObserver.cc
+	${c1y} -c $<
+
+Player.o:Player.cc
+	${c1y} -c $<
+
 #Utility.o:Utility.cc
 #	${c1y} -c $<
-#PlayerStandState.o:PlayerStandState.cc
+#CreatureStandState.o:CreatureStandState.cc
 #	${c1y} -c $<
 #
-#PlayerMoveState.o:PlayerMoveState.cc
+#CreatureMoveState.o:CreatureMoveState.cc
 #	${c1y} -c $<
 #
-#PlayerAttackState.o:PlayerAttackState.cc
+#CreatureAttackState.o:CreatureAttackState.cc
 #	${c1y} -c $<
 #
-#PlayerDieState.o:PlayerDieState.cc
+#CreatureDieState.o:CreatureDieState.cc
 #	${c1y} -c $<
 #
 #StateManager.o:StateManager.cc
@@ -51,16 +59,16 @@ CastingState.o:CastingState.cc
 
 clean:
 	rm -rf *.o ${all}
-#PlayerStandState.o:PlayerStandState.cc
+#CreatureStandState.o:CreatureStandState.cc
 #	${c1y} -c $<
 #
-#PlayerMoveState.o:PlayerMoveState.cc
+#CreatureMoveState.o:CreatureMoveState.cc
 #	${c1y} -c $<
 #
-#PlayerAttackState.o:PlayerAttackState.cc
+#CreatureAttackState.o:CreatureAttackState.cc
 #	${c1y} -c $<
 #
-#PlayerDieState.o:PlayerDieState.cc
+#CreatureDieState.o:CreatureDieState.cc
 #	${c1y} -c $<
 #
 #StateManager.o:StateManager.cc

@@ -4,8 +4,8 @@
 
 //#include "SkillDefine.h"
 //#include "WorldObjectConstants.h"
-#include "IState.h"
-#include "Player.h"
+//#include "IState.h"
+#include "Creature.h"
 #include "IdleState.h"
 #include "ReadyState.h"
 #include "CastingState.h"
@@ -26,8 +26,8 @@ enum StateType
     STATE_COUNT
 };
 
-class Player;
-class IState;
+class Creature;
+//class IState;
 //class SkillBase;
 //class SkillCommon;
 
@@ -35,7 +35,7 @@ class StateMachine
 {
     friend class IState;
 public:
-    StateMachine(Player* pPlayer);
+    StateMachine(Creature* pCreature);
     ~StateMachine();
 
     void Update(uint64 frameCount);
@@ -46,8 +46,8 @@ public:
     int GetCurrentStateId() const {return m_curStateId;}
 
     // 生物行为接口
-    //void MoveTo();                      // 移动
-    //void StopAt();         // 停止
+    void MoveTo(Position& pos);                      // 移动
+    void StopAt(Position& pos);         // 停止
     //void Cast();      // 施法
     //void OnCasted();
     //void Stun();                      // 眩晕
@@ -56,7 +56,7 @@ public:
     //void MoveCast();
 
 private:
-    Player* m_pOwner;
+    Creature* m_pOwner;
 
     IState* m_pCurrentState;
     IState* m_AllStateMap[7];   // 此状态的机的所有状态

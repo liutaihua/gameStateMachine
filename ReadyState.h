@@ -5,6 +5,7 @@
 #define ReadyState_h__
 
 #include "IState.h"
+class IState;
 
 class ReadyState : public IState
 {

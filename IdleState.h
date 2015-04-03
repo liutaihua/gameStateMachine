@@ -5,7 +5,10 @@
 #define IdleState_h__
 
 #include "IState.h"
-#include "Utility.h"
+//#include "Utility.h"
+
+class StateMachine;
+class IState;
 
 class IdleState : public IState
 {
@@ -16,6 +19,7 @@ public:
     virtual void Update( uint64 frameCount) {}
     virtual void OnEnter(int /*lastStateId*/);
     virtual void OnLeave(int /*nextStateId*/);
+    virtual void MoveTo(Position& pos/*nextStateId*/);
 };
 
 #endif // IdleState_h__

@@ -77,13 +77,13 @@ void CastingState::OnLeave(int32 nextStateId)
     m_CastState = 0;
 }
 
-void CastingState::MoveTo(int x, int y /*position*/)
+void CastingState::MoveTo(Position& pos/*position*/)
 {
 //    if(m_CastState == Cast_Duration)
 //        m_pStateMachine->ChangeStateTo(STATE_MOVE);
 }
 
-void CastingState::StopAt(int x, int y)
+void CastingState::StopAt(Position& pos)
 {
 //    if(m_CastState == Cast_Duration)
 //        m_pStateMachine->ChangeStateTo(STATE_IDLE);

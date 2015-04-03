@@ -5,6 +5,7 @@
 #define MoveState_h__
 
 #include "IState.h"
+class IState;
 
 class MoveState : public IState
 {
@@ -13,8 +14,8 @@ public:
     virtual ~MoveState();
 
     virtual void Update( uint64 /*frameCount*/ );
-    virtual void MoveTo(int x, int y);
-    virtual void StopAt(int x, int y);
+    virtual void MoveTo(Position& pos);
+    virtual void StopAt(Position& pos);
     virtual void Cast();
     virtual void Dead();
 

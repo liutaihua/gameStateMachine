@@ -4,11 +4,13 @@
 #ifndef IState_h__
 #define IState_h__
 #include "Utility.h"
+//#include "Creature.h"
+//#include "StateMachine.h"
 
 
-
+//struct Position;
 class StateMachine;
-class Player;
+class Creature;
 
 class IState
 {
@@ -22,7 +24,7 @@ public:
   virtual void OnLeave(int stateId/*nextStateId*/) {}
 
   // 行为接口
-  virtual void MoveTo(int /*position*/) {}
+  virtual void MoveTo(Position& pos/*position*/) {}
   //virtual void StopAt(const CoVec2& /*position*/, float /*angle*/) {}
   virtual void Cast() {}
   //virtual void OnCasted() {}
@@ -38,7 +40,7 @@ public:
 
 protected:
   StateMachine* m_pStateMachine;
-  Player*   m_pCreature;
+  Creature*   m_pCreature;
 
 private:
   int m_type;

@@ -17,22 +17,22 @@ void MoveState::Update(uint64)
     moveFrameCount += 1;
     if (moveFrameCount % 100 == 0){
         std::cout<<"Move tired "<<std::to_string(moveFrameCount)<<"\n";
-        //StopAt(0, 0);
+        StopAt(m_pCreature->GetPosition());
     }
 }
 
-void MoveState::MoveTo(int x, int y)
+void MoveState::MoveTo(Position& pos)
 {
     //DBG("moving...........................................................");
-    m_pCreature->doMoveTo(x, y);
+    m_pCreature->doMoveTo(pos);
     m_pStateMachine->ChangeStateTo(STATE_MOVE);
 }
 
-void MoveState::StopAt( int x, int y )
+void MoveState::StopAt(Position& pos)
 {
     //m_pCreature->doMoveTo(position);
     //m_pStateMachine->ChangeStateTo(STATE_MOVE);
-    m_pCreature->doStopAt(x, y);
+    m_pCreature->doStopAt(pos);
     m_pStateMachine->ChangeStateTo(STATE_IDLE);
 }
 

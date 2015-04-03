@@ -5,6 +5,7 @@
 #define DeadState_h__
 
 #include "IState.h"
+class IState;
 
 class DeadState : public IState
 {

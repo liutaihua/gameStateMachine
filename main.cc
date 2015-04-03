@@ -18,12 +18,12 @@ int main(){
     double interval = 0.05;
     std::cout<< "CLOCKS_PER_SEC:"<< std::to_string(CLOCKS_PER_SEC)<<"\n";
     while(true){
-        if(frameCount % 600 == 0){
+        if(frameCount % 600000 == 0){
             //std::cout<< "now frameCount:"<< std::to_string(frameCount)<<"\n";
             float detTime = frameCount / CLOCKS_PER_SEC;
             player->Update(frameCount);
             if(player->IsDie()){
-                std::cout<< "Player Die\n";
+                std::cout<< "player Die\n";
                 //player->Reborn();
             }
         }
